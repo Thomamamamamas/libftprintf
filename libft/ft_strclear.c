@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   strclear.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcasale <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 13:16:50 by tcasale           #+#    #+#             */
-/*   Updated: 2023/02/19 14:37:44 by tcasale          ###   ########.fr       */
+/*   Created: 2023/02/19 14:24:24 by tcasale           #+#    #+#             */
+/*   Updated: 2023/02/19 14:26:58 by tcasale          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+char	*ft_strclear(char *str)
+{
+	int		start;
+	int		end;
+	int		n;
+	char	*res;
 
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
-
-#endif
+	start = 0;
+	end = ft_strlen(str) - 1;
+	n = 0;
+	while (str[start] == ' ' || str[start] == '\t')
+		start++;
+	while (end > 0 && (str[end] == ' ' || str[end] == '\t'))
+		end--;
+	if ((end == ft_strlen(str) && start == 0) || end == 0)
+		return (str);
+	res = ft_substr(str, start, end - start);
+	return (res);
+}

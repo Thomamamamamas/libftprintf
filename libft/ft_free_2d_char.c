@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_free_2d_char.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcasale <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 13:16:50 by tcasale           #+#    #+#             */
-/*   Updated: 2023/02/19 14:37:44 by tcasale          ###   ########.fr       */
+/*   Created: 2023/02/19 14:30:27 by tcasale           #+#    #+#             */
+/*   Updated: 2023/02/19 14:36:39 by tcasale          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+void	ft_free_2d_char(char **str)
+{
+	int	n;
 
-# include "../libft/libft.h"
-# include "../ft_printf/ft_printf.h"
-# include "../get_next_line/get_next_line.h"
-
-#endif
+	n = 0;
+	while (str[n] != NULL)
+	{
+		free(str[n]);
+		n++;
+	}
+	free(str);
+}

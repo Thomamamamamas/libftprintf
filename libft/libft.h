@@ -6,13 +6,15 @@
 /*   By: tcasale <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:39:45 by tcasale           #+#    #+#             */
-/*   Updated: 2023/02/19 13:09:33 by tcasale          ###   ########.fr       */
+/*   Updated: 2023/02/19 14:36:02 by tcasale          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <string.h>
+# include <stdlib.h>
 # include <limits.h>
 
 typedef struct s_list
@@ -77,7 +79,6 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //Supplement
-
 int			ft_putchar(char c);
 int			ft_putstr(char *str);
 int			ft_putnbr(int n);
@@ -85,6 +86,22 @@ int			ft_putnbr_unsigned(int n);
 int			ft_putadress(unsigned long long n);
 int			ft_puthexa_upper(long long n);
 int			ft_puthexa_lower(long long n);
+
+//str utils
+//Renvoie 1 si str commence par start
+int			ft_strstart(char *str, char *start);
+//Supprime les espaces et les tabs au debut et a la fin de str
+char		*ft_strclear(char *str);
+
+//array utils
+char		**ft_append_2d_char(char **array, char *new_el);
+
+//malloc utils
+int			**ft_malloc_2d_int(int x, int y);
+
+//free utils
+void		ft_free_2d_char(char **str);
+void		ft_free_2d_int(int **array, int len);
 
 int			ft_is_sort(int *tab, size_t lenght);
 
